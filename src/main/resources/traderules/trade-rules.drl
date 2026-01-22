@@ -1,0 +1,11 @@
+package traderules
+
+import traderules.TradeRules;
+
+rule "ShortQtyFloor10"
+when
+    $trade : TradeRules(type == "SHORT", qty > 10)
+then
+    System.out.println("APPROVED SHORT trade | Ticker: " + $trade.getTicker() + " | Qty: " + $trade.getQty());
+
+end
